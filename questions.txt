@@ -1,0 +1,54 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+It is the longest word in the English language published in a dictionary.
+
+1.  According to its man page, what does getrusage do?
+It returns resource usage measures for the calling process, all of its children
+or the calling thread.
+
+2.  Per that same man page, how many members are in a variable of type
+struct rusage?
+16 variables.
+
+3.  Why do you think we pass before and after by reference (instead of
+by value) to calculate, even though we’re not changing their contents?
+I have no idea.
+
+4.  Explain as precisely as possible, in a paragraph or more,
+how main goes about reading words from a file. In other words,
+convince us that you indeed understand how that function’s for loop works.
+The for loop reads each character from the text file. If the character is
+an alphabetical character or an apostrophe,  the character is appended to
+the word that is to be checked later on (as long as the word isn't longer
+than 45 characters or contains a number). Once the end of the word has been
+reached, a \0 is added and the word is spell-checked.
+
+5.  Why do you think we used fgetc to read each word’s characters one at
+a time rather than use fscanf with a format string like "%s" to read whole
+words at a time? Put another way, what problems might arise by relying
+on fscanf alone?
+I think this is because fscanf can sometimes experience "failures" where
+no further input is read, e.g. if there is too much whitespace between words.
+
+6.  Why do you think we declared the parameters for check and load as const?
+So that the program can't "accidentally" make changes to the values of word
+and dictionary at their respective locations.
+
+7.  What data structure(s) did you use to implement your spell-checker?
+Be sure not to leave your answer at just "hash table," "trie," or the like.
+Expound on what’s inside each of your "nodes."
+I used a hash table with a hash function I stumbled upon on reddit
+(http://www.reddit.com/r/cs50/comments/1x6vc8/pset6_trie_vs_hashtable/cf9nlkn).
+The hash function systematically puts words into a very large number of
+buckets because it takes into account every letter of the word.
+
+8.  How slow was your code the first time you got it working correctly?
+Thanks to the excellent hash function I found, I did not have to make any
+optimizations to my code once I got it working correctly.
+
+9.  What kinds of changes, if any, did you make to your code over the course
+of the week in order to improve its performance?
+I did not make any changes to improve its performance.
+
+10. Do you feel that your code has any bottlenecks that you were not able to
+chip away at?
+No.
